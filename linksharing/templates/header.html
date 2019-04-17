@@ -1,0 +1,46 @@
+{% load static %}
+<header class="header">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-9 header-top-left">
+					<div class="header_content d-flex flex-row align-items-center justify-content-start">
+						<div class="logo">
+							<a href="#"><img src="{% static 'img/logo.png' %}" alt=""></a>
+						</div>
+						<nav class="main_nav">
+							<ul>
+								<li class="active"><a href="{% url 'index' %}">Link Sharing</a></li>
+							</ul>
+						</nav>
+
+					</div>
+
+					</div>
+					<div class="col-lg-3 text-lg-right header-top-right">
+						<div class="hamburger ml-auto"><i class="fa fa-bars" aria-hidden="true"></i></div>
+						<div class="user-panel" >
+							{% if user.is_authenticated %}
+									<i class="fa fa-user-circle-o"></i>
+									<img src="{{ user.profile_pic.url }}" height="40" width="40">
+									{{ user }}
+								<a href="{% url 'user_logout' %}" color="white"><font color="red">
+									<i class="fa fa-user-circle-o"></i> Logout</font></a>
+							{% else %}
+								<a href="{% url 'register' %}" color="white"><font color="red">
+									<i class="fa fa-user-circle-o"></i> Register</font></a>
+								<a href="{% url 'user_login' %}" color="white"><font color="red">
+									<i class="fa fa-sign-in"></i> Login</font></a>
+							{% endif %}
+						</div>
+					</div>
+
+			</div>
+		</div>
+					{% if messages %}
+					<ul class="messages">
+   					{% for message in messages %}
+						<font color="red"><li >{% if message.tags %} "{{ message.tags }}"{% endif %}{{ message }}</font></li>
+    				{% endfor %}
+					</ul>
+					{% endif %}
+	</header>

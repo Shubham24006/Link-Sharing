@@ -1,0 +1,29 @@
+{% load static %}
+<footer class="footer">
+		<div class="footer_main">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-3">
+						<div class="footer_logo"><a href="#"><img src="{% static 'img/logo.png'%}" height="100" width="100" alt=""></a></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="footer_bar">
+			<div class="container">
+				<div class="row">
+					<div class="col">
+						<div class="footer_bar_content d-flex flex-row align-items-center justify-content-start">
+
+							<div class="footer_nav">
+								<ul>
+									<li><a href="{% url 'index' %}">Link Sharing</a></li>
+								</ul>
+							</div>
+							<div class="footer_phone ml-auto"><span>call us: </span>9989899899</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
